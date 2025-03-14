@@ -15,11 +15,29 @@ return {
       },
     }
 
-    vim.keymap.set('n', '<leader>tn', function()
-      require('neotest').run.run()
-    end)
-    vim.keymap.set('n', '<leader>tf', function()
-      require('neotest').run.run(vim.fn.expand '%')
-    end)
+    -- vim.keymap.set('n', '<leader>tn', function()
+    --   require('neotest').run.run()
+    -- end)
+    -- vim.keymap.set('n', '<leader>tf', function()
+    --   require('neotest').run.run(vim.fn.expand '%')
+    -- end)
   end,
+  keys = {
+    {
+      '<leader>t',
+      desc = 'Test',
+    },
+    {
+      '<leader>tf',
+      [[<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<CR>]],
+      { noremap = true, silent = true },
+      desc = 'Run [F]ile test',
+    },
+    {
+      '<leader>tn',
+      [[<cmd>lua require('neotest').run.run()<CR>]],
+      { noremap = true, silent = true },
+      desc = 'Run [N]earest test',
+    },
+  },
 }
