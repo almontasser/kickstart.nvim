@@ -24,20 +24,16 @@ return {
   end,
   keys = {
     {
-      '<leader>t',
-      desc = 'Test',
-    },
-    {
-      '<leader>tf',
+      '<leader>Tf',
       [[<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<CR>]],
       { noremap = true, silent = true },
-      desc = 'Run [F]ile test',
+      desc = '[T]est [F]ile',
     },
     {
-      '<leader>tn',
+      '<leader>Tn',
       [[<cmd>lua require('neotest').run.run()<CR>]],
       { noremap = true, silent = true },
-      desc = 'Run [N]earest test',
+      desc = '[T]est [N]earest',
     },
   },
 }

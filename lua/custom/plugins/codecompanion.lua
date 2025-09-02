@@ -1,4 +1,3 @@
-local mapping_key_prefix = vim.g.ai_prefix_key or '<leader>a'
 local IS_DEV = false
 
 -- This is custom system prompt for Copilot adapter
@@ -102,15 +101,6 @@ Identify any issues related to:
 ]]
 
 return {
-  {
-    'folke/which-key.nvim',
-    optional = true,
-    opts = {
-      spec = {
-        { mapping_key_prefix, group = 'AI Code Companion', mode = { 'n', 'v' } },
-      },
-    },
-  },
   {
     'nvim-treesitter/nvim-treesitter',
     opts = { ensure_installed = { 'yaml', 'markdown' } },
@@ -530,80 +520,80 @@ return {
     keys = {
       -- Recommend setup
       {
-        mapping_key_prefix .. 'a',
+        '<leader>aa',
         '<cmd>CodeCompanionActions<cr>',
         desc = 'Code Companion - Actions',
       },
       {
-        mapping_key_prefix .. 'v',
+        '<leader>av',
         '<cmd>CodeCompanionChat Toggle<cr>',
         desc = 'Code Companion - Toggle',
         mode = { 'n', 'v' },
       },
       -- Some common usages with visual mode
       {
-        mapping_key_prefix .. 'e',
+        '<leader>ae',
         '<cmd>CodeCompanion /explain<cr>',
         desc = 'Code Companion - Explain code',
         mode = 'v',
       },
       {
-        mapping_key_prefix .. 'f',
+        '<leader>af',
         '<cmd>CodeCompanion /fix<cr>',
         desc = 'Code Companion - Fix code',
         mode = 'v',
       },
       {
-        mapping_key_prefix .. 'l',
+        '<leader>al',
         '<cmd>CodeCompanion /lsp<cr>',
         desc = 'Code Companion - Explain LSP diagnostic',
         mode = { 'n', 'v' },
       },
       {
-        mapping_key_prefix .. 't',
+        '<leader>at',
         '<cmd>CodeCompanion /tests<cr>',
         desc = 'Code Companion - Generate unit test',
         mode = 'v',
       },
       {
-        mapping_key_prefix .. 'm',
+        '<leader>am',
         '<cmd>CodeCompanion /commit<cr>',
         desc = 'Code Companion - Git commit message',
       },
       -- Custom prompts
       {
-        mapping_key_prefix .. 'M',
+        '<leader>aM',
         '<cmd>CodeCompanion /staged-commit<cr>',
         desc = 'Code Companion - Git commit message (staged)',
       },
       {
-        mapping_key_prefix .. 'd',
+        '<leader>ad',
         '<cmd>CodeCompanion /inline-doc<cr>',
         desc = 'Code Companion - Inline document code',
         mode = 'v',
       },
-      { mapping_key_prefix .. 'D', '<cmd>CodeCompanion /doc<cr>', desc = 'Code Companion - Document code', mode = 'v' },
+      { '<leader>aD', '<cmd>CodeCompanion /doc<cr>', desc = 'Code Companion - Document code', mode = 'v' },
       {
-        mapping_key_prefix .. 'r',
+        '<leader>ar',
         '<cmd>CodeCompanion /refactor<cr>',
         desc = 'Code Companion - Refactor code',
         mode = 'v',
       },
       {
-        mapping_key_prefix .. 'R',
+        '<leader>aR',
         '<cmd>CodeCompanion /review<cr>',
         desc = 'Code Companion - Review code',
         mode = 'v',
       },
       {
-        mapping_key_prefix .. 'n',
+        '<leader>an',
         '<cmd>CodeCompanion /naming<cr>',
         desc = 'Code Companion - Better naming',
         mode = 'v',
       },
       -- Quick chat
       {
-        mapping_key_prefix .. 'q',
+        '<leader>aq',
         function()
           local input = vim.fn.input 'Quick Chat: '
           if input ~= '' then
